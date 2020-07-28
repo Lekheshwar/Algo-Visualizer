@@ -145,7 +145,7 @@ export default class SearchVisualizer extends React.Component {
     render() {
         return (
             <div className="main">
-                <div disabled={this.state.disabled} className="button shadow1 reset-button" onClick={() => !this.state.disabled ? this.resetArray() : ""}>Radomize</div>
+                <div disabled={this.state.disabled} className="button shadow1 reset-button" onClick={() => !this.state.disabled ? this.resetArray() : ""}>Reset</div>
                 <div className="array-section shadow2">
                     {this.state.array.map((value, idx) => (
                         <div className="array-elements shadow1" key={idx}>{value}</div>
@@ -155,7 +155,7 @@ export default class SearchVisualizer extends React.Component {
                 <div className="bottom-tool-bar">
                     <input type="number" className="" value={this.state.key} placeholder="Enter key to be searched" onChange={this.inputRead.bind(this)} />
                     <div className="search-buttons">
-                        <div className="button shadow1" onClick={() => !this.state.disabled ? this.linerSearch() : ""}>Liner Search</div>
+                        <div className="button shadow1" onClick={() => !this.state.disabled ? this.linerSearch() : ""}>Linear Search</div>
                         <div className="button shadow1" onClick={() => !this.state.disabled ? this.binaySearch() : ""}>Binary Search</div>
                     </div>
                 </div>
