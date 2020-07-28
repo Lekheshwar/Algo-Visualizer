@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Algo-Visualizer/static/css/main.f1b0df12.chunk.css",
+    "main.js": "/Algo-Visualizer/static/js/main.37a1a80e.chunk.js",
+    "main.js.map": "/Algo-Visualizer/static/js/main.37a1a80e.chunk.js.map",
+    "runtime-main.js": "/Algo-Visualizer/static/js/runtime-main.0678f998.js",
+    "runtime-main.js.map": "/Algo-Visualizer/static/js/runtime-main.0678f998.js.map",
+    "static/js/2.f2059b93.chunk.js": "/Algo-Visualizer/static/js/2.f2059b93.chunk.js",
+    "static/js/2.f2059b93.chunk.js.map": "/Algo-Visualizer/static/js/2.f2059b93.chunk.js.map",
+    "index.html": "/Algo-Visualizer/index.html",
+    "precache-manifest.8770718cb2198da22937d9091f799df3.js": "/Algo-Visualizer/precache-manifest.8770718cb2198da22937d9091f799df3.js",
+    "service-worker.js": "/Algo-Visualizer/service-worker.js",
+    "static/css/main.f1b0df12.chunk.css.map": "/Algo-Visualizer/static/css/main.f1b0df12.chunk.css.map",
+    "static/js/2.f2059b93.chunk.js.LICENSE.txt": "/Algo-Visualizer/static/js/2.f2059b93.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0678f998.js",
+    "static/js/2.f2059b93.chunk.js",
+    "static/css/main.f1b0df12.chunk.css",
+    "static/js/main.37a1a80e.chunk.js"
+  ]
+}
