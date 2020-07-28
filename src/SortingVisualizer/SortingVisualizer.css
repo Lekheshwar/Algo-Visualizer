@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+}
+.array-container{
+    position: center;
+    padding: 0px 0px;
+    margin: 9px 2px;
+    display: flex;
+    width: 94vw;
+    background-color: #dbf3fa;
+    /* align-items: center; */
+    height: min-content;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+
+.array-bar{
+    width : 3px;
+    background-color:#20232a;
+    display: inline-block;
+    margin: 0px 1px;
+    color: transparent;
+}
+
+.side-bar{
+    height: 80vh;
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #dbf3fa;
+}
+
+.button-grp{
+    height: max-content;
+    display: grid;
+    width: 200px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.button-grp div{
+    cursor: pointer;
+    height: 40px;
+    justify-content: center;
+    padding-top: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgb(0, 255, 255);
+    color: #4286f4;
+    width: 180px;
+    border-radius: 2px;
+    font-size: 18px;
+    background-color: #f5f4f4;
+    box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    margin: 15px;
+}
+
+.button-grp :nth-child(1){
+    margin-bottom: 40px;
+    background-color: #4286f4;
+    color: #f5f4f4;
+    box-shadow: -4px -4px 10px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 10px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.button-grp div:hover{
+    box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.1), -4px -4px 5px 0px rgba(0, 0, 0, 0.1), 4px 4px 10px 0px #fff9, 4px 4px 5px 0px #fff9, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.button-grp :nth-child(1):hover{
+   
+    background-color: #4286f4;
+    box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.1), -4px -4px 5px 0px rgba(0, 0, 0, 0.1), 4px 4px 10px 0px #fff9, 4px 4px 5px 0px #fff9, inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+
+
+.bar-section{
+    background-color: #dbf3fa;
+    width: 80%;
+    margin: 1%;
+    box-sizing: border-box;
+    height: min-content;
+    box-shadow: inset 0px 5px 6px 7px #20232a;
+}
+
+
+@media only screen and (max-width: 768px){
+    .array-container{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .bar-section{
+        width: 92vw;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-grp div{
+        width: 75vw;
+    }
+
+}
