@@ -1,6 +1,6 @@
 import React from 'react';
 import { randomIntFromInterval } from '../SortingVisualizer/SortingVisualizer';
-import { getLinerSearchAnimation, getBinarySearchAnimation } from '../Algorithms/searchAlgorithms';
+import { getLinerSearchAnimation, getBinarySearchAnimation, getJumpSearchAnimation } from '../Algorithms/searchAlgorithms';
 import './SearchingVisualizer.css';
 
 
@@ -18,11 +18,11 @@ export default class SearchVisualizer extends React.Component {
         this.resetArray();
     }
 
-    
+
     //===============================DISABLE/ENABLE=========================================//
 
     disableButtons() {
-        this.setState({disabled:true});
+        this.setState({ disabled: true });
         const buttonStyles = document.getElementsByClassName("button");
         for (let value of buttonStyles) {
             value.style.color = "red";
@@ -33,9 +33,9 @@ export default class SearchVisualizer extends React.Component {
         setTimeout(() => {
             const buttonStyles = document.getElementsByClassName("button");
             for (let i = 0; i < buttonStyles.length; i++) {
-                buttonStyles[i].style.color = i === 0 ? "white" : "#223f6e" ;
+                buttonStyles[i].style.color = i === 0 ? "white" : "#223f6e";
             }
-             this.setState({ disabled: false });
+            this.setState({ disabled: false });
         }, (animatonLength * 1000) + 3000);
     }
     //==========================GENERATE NEW SET OF ELEMENTS==================================//
@@ -48,6 +48,12 @@ export default class SearchVisualizer extends React.Component {
         this.setState({ array });
     }
 
+    getInputAlert() {
+        const inputFieldStyle = document.getElementsByTagName("input")[0].style;
+        inputFieldStyle.boxShadow = " 1px 1px 5px 1px red";
+        setTimeout(() => inputFieldStyle.boxShadow = "none", 100);
+    }
+
     //==========================BINARY SEARCH STARTS=========================================//
 
 
@@ -55,9 +61,7 @@ export default class SearchVisualizer extends React.Component {
 
         //=============================CHECK FOR THE PRESENCE OF THE KEY=================//
         if (!this.state.key.length) {
-            const inputFieldStyle =  document.getElementsByTagName("input")[0].style;
-            inputFieldStyle.boxShadow = " 1px 1px 5px 1px red";
-            setTimeout(() => inputFieldStyle.boxShadow = "none",100);
+            this.getInputAlert();
             return;
         }
 
@@ -81,8 +85,8 @@ export default class SearchVisualizer extends React.Component {
                         value.backgroundColor = "#ff0000ad";
                     });
                     midStyle.backgroundColor = isEquall ? "#576115b3" : "#00FF00";
-                    if(isEquall)
-                        setTimeout(() => midStyle.backgroundColor = "#dbf3fa",3000);
+                    if (isEquall)
+                        setTimeout(() => midStyle.backgroundColor = "#dbf3fa", 3000);
                 }, i * 1500);
             }
             // second time to retrive the color back to normal.....
@@ -106,9 +110,7 @@ export default class SearchVisualizer extends React.Component {
 
         //================Check for the presence of the key======================//
         if (!this.state.key.length) {
-            const inputFieldStyle =  document.getElementsByTagName("input")[0].style;
-            inputFieldStyle.boxShadow = " 1px 1px 5px 1px red";
-            setTimeout(() => inputFieldStyle.boxShadow = "none",100);
+            this.getInputAlert();
             return;
         }
 
@@ -123,8 +125,8 @@ export default class SearchVisualizer extends React.Component {
                 // Change the color of the array elements during the comparision.=======
                 setTimeout(() => {
                     eleStyle.backgroundColor = isEquall ? "#576115b3" : "#00FF00";
-                    if(isEquall)
-                        setTimeout(() => eleStyle.backgroundColor = "#dbf3fa",3000);
+                    if (isEquall)
+                        setTimeout(() => eleStyle.backgroundColor = "#dbf3fa", 3000);
                 }, i * 1000);
             }
             else {
@@ -136,7 +138,59 @@ export default class SearchVisualizer extends React.Component {
         }
     }
 
-    //==============================LINEAR SEARCH ENDS====================================//   
+    //==============================LINEAR SEARCH ENDS====================================// 
+
+
+
+
+    //===============================JUMP SEARCH BEGINS================================//
+
+    jumpSearch() {
+        // check for the presence of the key...........................
+        if (!this.state.key.length) {
+            this.getInputAlert();
+            return;
+        }
+
+        
+        this.disableButtons();
+        const arrayElements = document.getElementsByClassName("array-elements");
+        const animations = getJumpSearchAnimation(this.state.array, parseInt(this.state.key));
+        this.enableButtons(animations.length);
+        for (let i = 0; i < animations.length; i++) {
+            const [left, right, isEquall] = animations[i];
+            const partialArrayStyle = [];
+            for (let i = left; i <= right; i++) {
+                partialArrayStyle.push(arrayElements[i].style);
+            }
+
+            if (i % 2 === 0) {
+                setTimeout(() => {
+                    if (isEquall) {
+                        partialArrayStyle[0].backgroundColor = "#576115b3";
+                        setTimeout(() => {
+                            partialArrayStyle[0].backgroundColor = "#dbf3fa";
+                        },3000);
+                    }
+                    else {
+                        partialArrayStyle.forEach(value => {
+                            value.backgroundColor = "#ff0000ad";
+                        });
+                        partialArrayStyle[partialArrayStyle.length-1].backgroundColor = "lime";
+                    }
+                }, i * 1500);
+            }
+            else{
+                setTimeout(() => {
+                    partialArrayStyle.forEach((value) => {
+                        value.backgroundColor = "#dbf3fa";
+                    });
+                }, i * 1500);
+            }
+        }
+    }
+
+// =================================JUMP SEARCH ENDS==================================//
 
     inputRead(e) {
         this.setState({ key: e.target.value });
@@ -157,6 +211,7 @@ export default class SearchVisualizer extends React.Component {
                     <div className="search-buttons">
                         <div className="button shadow1" onClick={() => !this.state.disabled ? this.linerSearch() : ""}>Linear Search</div>
                         <div className="button shadow1" onClick={() => !this.state.disabled ? this.binaySearch() : ""}>Binary Search</div>
+                        <div className="button shadow1" onClick={() => !this.state.disabled ? this.jumpSearch() : ""}>Jump Search</div>
                     </div>
                 </div>
             </div>
