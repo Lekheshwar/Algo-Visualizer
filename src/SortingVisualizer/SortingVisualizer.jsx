@@ -206,7 +206,7 @@ export default class SortingVisualizer extends React.Component {
                         <div className="button" onClick={() => !this.state.disabled ? this.bubbleSort() : ""}> Bubble Sort </div>
                         <div className="button" onClick={() => !this.state.disabled ? this.insertionSort() : ""}> Insertion Sort </div>
                         <div className="button" onClick={() => !this.state.disabled ? this.selectionSort() : ""}> Selection Sort </div>
-                        <div className="button" onClick={() => !this.state.disabled ? this.mergeSort() : ""}> Merg Sort </div>
+                        <div className="button" onClick={() => !this.state.disabled ? this.mergeSort() : ""}> Merge Sort </div>
                         <div className="button" onClick={() => !this.state.disabled ? this.quickSort() : ""}> Quick Sort </div>
                     </div>
                 </div>
